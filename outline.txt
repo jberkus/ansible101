@@ -1,0 +1,44 @@
+setup
+-  create fedora 24 ec2 host
+
+ad-hoc commands
+  check host (ping)
+  install git
+  check out repo
+
+modules, simple playbook
+  install git
+    docker
+  check out repo
+
+variables and templates
+  add variable file
+  create dockerfile
+  build docker image
+
+secrets
+  pushes a docker image
+
+roles
+  now, redo that as a role
+
+ec2 module
+  add role which:
+    adds security role with port 80 open
+    spins up ec2 instance running Fedora Atomic
+    pulls the image
+    runs the container
+
+then connect to the presentation
+
+build an ansible toolchain which:
+
+1. builds a container for the slides webapp
+  a. git pull
+  b. create dockerfile
+  c. docker build
+2. pushes the container
+3. spins up a aws instance
+4. downloads the container
+5. runs it
+6. returns ip address
