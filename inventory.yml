@@ -1,4 +1,4 @@
 # host to build docker containers
 # replace with the IP address of your AWS instance
 [dockerbuild]
-52.89.12.136
+52.89.12.136 ansible_user=centos ansible_become=true

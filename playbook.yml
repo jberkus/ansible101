@@ -1,0 +1,14 @@
+---
+- hosts: dockerbuild
+  vars:
+    repo_name: "https://github.com/jberkus/ansible101.git"
+  tasks:
+    - name: install docker
+      yum: name=docker state=present
+    - name: start docker
+      service: name=docker state=started
+    - name: install git
+      yum: name=git state=present
+    - name: check out ansible101 repo
+      git: repo={{ repo_name }}
+        dest=/tmp/ansible101
