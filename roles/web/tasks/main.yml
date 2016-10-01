@@ -1,0 +1,12 @@
+---
+- name: make sure docker is running
+  service:
+    name: docker
+    state: started
+- name: run the ans101preso container
+  docker_container:
+    name: ans101preso
+    state: started
+    image: "jberkus/ans101preso:latest"
+    published_ports:
+      - "80:8000"

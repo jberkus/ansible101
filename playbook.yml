@@ -1,6 +1,16 @@
 ---
-- hosts: dockerbuild
+# - hosts: dockerbuild
+#   vars_files:
+#     - pass.yml
+#   roles:
+#     - dockerbuild
+
+- hosts: localhost
   vars_files:
-    - pass.yml
+    - aws.yml
   roles:
-    - dockerbuild
+    - create_ec2
+
+- hosts: webhosts
+  roles:
+    - web

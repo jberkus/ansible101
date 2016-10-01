@@ -1,0 +1,7 @@
+---
+keypair: demo-us-west
+instance_type: "t2.micro"
+security_group: web_ssh
+ec2_image: ami-0227f362
+region: us-west-2
+vpc_subnet: subnet-3e466f67
