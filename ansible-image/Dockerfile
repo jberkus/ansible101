@@ -7,7 +7,7 @@ MAINTAINER Josh Berkus "josh@agliodbs.com"
 # install ansible requirements and tools
 RUN dnf install -y python-pip \
     && dnf install -y ansible ansible-lint ansible-review \
-    && dnf install -y sudo openssh\
+    && dnf install -y sudo openssh openssh-clients\
     && dnf install -y joe nano \
     && dnf install -y git \
     && dnf clean all \

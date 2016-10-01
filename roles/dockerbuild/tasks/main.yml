@@ -1,0 +1,25 @@
+---
+- name: Install required packages
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - docker
+    - git
+    - python-docker-py
+
+- name: write dockerfile
+  template:
+    src: dockerfile.j2
+    dest: /root/Dockerfile
+  notify:
+    - log into docker hub
+    - build docker image
+
+- name: check out ansible101 repo
+  git:
+    repo: "{{ repo_name }}"
+    dest: /root/ansible101
+  notify:
+    - log into docker hub
+    - build docker image

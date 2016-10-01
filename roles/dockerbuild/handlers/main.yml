@@ -1,0 +1,14 @@
+---
+- name: log into docker hub
+  docker_login:
+    username: "{{ docker_username }}"
+    password: "{{ docker_password }}"
+    email: "{{ owner_email }}"
+
+- name: build docker image
+  docker_image:
+    path: /root/
+    dockerfile: /root/Dockerfile
+    name: "{{ image_name }}"
+    tag: "{{ image_tag }}"
+    force: true
