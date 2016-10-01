@@ -22,7 +22,7 @@ You'll need to download this git repo and put it on your local machine.  Again,
 substitute /home/jberkus for wherever your homedir is.
 
 Finally, you'll need to install ansible locally on your machine.  There's two
-ways to do that.  
+ways to do that.
 
 Way #1: Install ansible locally:
 
@@ -45,15 +45,22 @@ not, you may need to adjust some file paths.
 
 Please proceed to the file "LESSON_01.md".
 
-The way you go to lesson 01 is to proceed to the first commit on this repository:
+For convenience, this repository has tags to help you go from one commit to
+the next. These tags are of the form `LESSON##`, where `##` is a number.
+For example, the first tag is `LESSON01`, the second is `LESSON02`, and so
+on.
+
+To view lesson 01 on your computer, run the following commands:
 
 ```
 git clone https://github.com/jberkus/ansible101.git
-git checkout e947e27
+git checkout LESSON01
 ```
 
-After this, you can advance commits one at a time by:
+Then you can view lesson 02 by running:
 
 ```
-git checkout HEAD@{1}
+git checkout LESSON02
 ```
+
+Continue proceeding through all lessons by checking out one tag after another.
