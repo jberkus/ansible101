@@ -1,14 +1,37 @@
 ---
 - hosts: dockerbuild
   vars:
+    image_name: "jberkus/ans101preso"
+    image_tag: latest
+    owner_email: "josh@agliodbs.com"
     repo_name: "https://github.com/jberkus/ansible101.git"
+    webdir_path: "ansible101/preso"
   tasks:
-    - name: install docker
-      yum: name=docker state=present
-    - name: start docker
-      service: name=docker state=started
-    - name: install git
-      yum: name=git state=present
+    - name: Install required packages
+      yum:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - docker
+        - git
+        - python-docker-py
+    - name: write dockerfile
+      template:
+        src: dockerfile.j2
+        dest: /root/Dockerfile
+      notify:
+        - build docker image
     - name: check out ansible101 repo
-      git: repo={{ repo_name }}
-        dest=/tmp/ansible101
+      git:
+        repo: "{{ repo_name }}"
+        dest: /root/ansible101
+      notify:
+        - build docker image
+  handlers:
+    - name: build docker image
+      docker_image:
+        path: /root/
+        dockerfile: /root/Dockerfile
+        name: "{{ image_name }}"
+        tag: "{{ image_tag }}"
+        force: true

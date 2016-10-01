@@ -28,6 +28,7 @@ Way #1: Install ansible locally:
 
 * Install ansible 2.1 or later
 * Install boto and other requirements for ansible EC2 module
+* Install git, if you don't already have it.
 
 Way #2: use the docker image, if you run docker:
 
@@ -42,4 +43,17 @@ you've stashed your PEM files for AWS login.
 The rest of the tutorial assumes you're using the docker container, so if you're
 not, you may need to adjust some file paths.
 
-Please proceed to the file "LESSON_01.md".  
+Please proceed to the file "LESSON_01.md".
+
+The way you go to lesson 01 is to proceed to the first commit on this repository:
+
+```
+git clone https://github.com/jberkus/ansible101.git
+git checkout e947e27
+```
+
+After this, you can advance commits one at a time by:
+
+```
+git checkout HEAD@{1}
+```

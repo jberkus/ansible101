@@ -1,0 +1,20 @@
+# This demo dockerfile creates a Fedora-based image for running a static web page
+# under python simplehttpserver
+
+# image: {{ image_name }}:{{ image_tag }}
+
+FROM fedora:24
+
+MAINTAINER {{ owner_email }}
+
+RUN dnf install -y python \
+  && mkdir /srv/www \
+  && chmod 755 /srv/www \
+  && dnf clean all
+
+ADD {{ webdir_path }} /srv/www
+
+EXPOSE 8000
+
+WORKDIR /srv/www
+CMD [ "python", "-m", "SimpleHTTPServer"]

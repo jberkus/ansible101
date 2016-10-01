@@ -30,3 +30,5 @@ playbooks.  Take a look at the playbook.yml file:
 ```
 $EDITOR playbook.yml
 ```
+
+Please advance to LESSON_03.
